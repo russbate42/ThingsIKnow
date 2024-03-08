@@ -1,0 +1,19 @@
+## MAIN GITIGNORE
+
+# Ignore pdf output and excess compilation output
+*.aux
+*.pdf_latexmk
+*.fls
+*.log
+*.pdf
+*.gz
+*.fdb_latexmk
+
+# Ignore figures, don't want heavy repo
+Figures/*.jpg
+Figures/*.pdf
+Figures/*.png
+Figures/*.eps
+Figures/*.bmp
+Figures/*.jpeg
+
