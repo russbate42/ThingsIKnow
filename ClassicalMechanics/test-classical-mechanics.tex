@@ -1,0 +1,57 @@
+\documentclass[12pt]{book}
+
+\usepackage{import} % for importing alternative to include\input
+\import{../}{preamble}
+\import{../}{geometry}
+\import{../}{header}
+\usepackage{physics}
+
+\begin{document}
+
+\chapter{Introduction}
+This is a test of the chapter on classical mechanics.
+
+\chapter{Classical Mechanics}
+\import{./}{classical-mechanics}
+Begin with the statement about the action. The action can be described as
+the difference between the kinetic and potential energy. $L = T - V$
+\begin{equation}
+    S = \int_T L(q,\dot{q}) \dv{t} 
+\end{equation}
+We then make the statement that the action is minimized
+\begin{equation}
+    \delta S = 0 \implies \delta \int_T L(q,\dot{q}) \dv{t} = 0
+\end{equation}
+Expand out the action
+\begin{align}
+    \delta L &= \pdv{L}{\dot{q}}\delta q + \pdv{L}{\dot{q}}\delta \dot{q} \\
+             &= \pdv{L}{\dot{q}}\delta q + \pdv{L}{\dot{q}}\dv{t} q
+\end{align}
+Next we use a trick. This step is often referred to as ``integration by parts''
+but it is really just the expension of a total derivative.
+\begin{align}
+    \dv{t}\left[ \pdv{L}{\dot{q}}\delta q \right] &= \left( \dv{t}\pdv{L}{\dot{q}} \right) \delta q + \pdv{L}{\dot{q}} \left( \dv{t} \delta q \right) \\
+    \pdv{L}{\dot{q}} \left( \dv{t} \delta q \right) &= \dv{t}\left[ \pdv{L}{\dot{q}}\delta q \right] - \left( \dv{t}\pdv{L}{\dot{q}} \right)  
+\end{align}
+This enables the substitution.
+\begin{align}
+    \delta S &= 0 \\
+    \int_T \delta L \dv{t} &= \int_T \left\{ \pdv{L}{q} \delta q + \dv{t}\left[ \pdv{L}{\dot{q}} \delta q \right] - \left( \dv{t}\pdv{L}{\dot{q}}\delta q \right) \right\} \dd t \\
+                           &= \int_T \left[ \pdv{L}{q} - \dv{t}\pdv{L}{\dot{q}} \right]\delta q \dd t + \int_T \dv{t}\left[ \pdv{L}{\dot{q}}\delta q \right]\dd t \\
+                           &= \int_T \left[ \pdv{L}{q} - \dv{t}\pdv{L}{\dot{q}} \right]\delta q \dd t + \pdv{L}{\dot{q}}\delta q \eval^{t_2}_{t_1}
+\end{align}
+With the last quantity, this depends on the boundary conditions. We assume that
+the starting and ending points $q_1 and q_2$ are fixed at start and end times
+$q_1$ and $q_2$ respectively. As the variation term $\delta q$ is zero here,
+this entire term vanishes. Therefore, the only way that the action is zero is if
+the quanitity in the square brackets vanishes.
+\begin{equation}
+    \implies \pdv{L}{q} - \dv{t}\pdv{L}{\dot{q}} = 0
+\end{equation}
+These are the \textbf{Euler-Lagrange equations of motion}.
+
+
+\import{../}{bibliography.tex}
+
+\end{document}
+
