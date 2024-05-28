@@ -1,0 +1,77 @@
+
+%% This is a subsection of a chapter which can be imported
+
+\section{Classical Field Theory Forumlation}
+We begin with the Lagrangian
+\begin{equation}
+    \mathcal{L} = \mathcal{L}\left( \phi, \partial_\mu\phi \right)
+\end{equation}
+Note this lagrangian is a function of a scalar field $\phi$ and a space-time
+derivative $\partial_\mu\phi$. This is a direct analogy to the classical lagrangian
+\begin{equation}
+    L = L\left( q, \dot{q} \right)
+\end{equation}
+Following the exact same procedure, we vary the Lagrangian $\mathcal{L}$.
+\begin{align}
+    \delta\mathcal{L} &= \pdv{L}{\phi}\delta\phi + \pdv{L}{\partial_\mu\phi}\delta(\partial_\mu\phi) \\
+                      &= \pdv{L}{\phi}\delta\phi + \pdv{L}{\partial_\mu\phi}\partial_\mu(\delta\phi)
+\end{align}
+The next step involves a tricky substitution. This is often referred to as integration by parts,
+but it is really just the chain rule. Both are true. Notice the following relationship.
+\begin{equation}
+    \partial_\mu\left( \pdv{\mathcal{L}}{\partial_\mu\phi} \delta\phi\right) = \left( \partial_\mu\pdv{\mathcal{L}}{\partial_\mu\phi} \right)\delta\phi + \pdv{\mathcal{L}}{\partial_\mu\phi} \partial_\mu(\delta\phi)
+\end{equation}
+Here I have placed brackets just to make the derivative explicit. This is precisely what we have in
+the above equation. Thus, after the substitution this becomes
+
+\begin{align}
+    \delta\mathcal{L} &= \pdv{L}{\phi}\delta\phi + \partial_\mu\left( \pdv{\mathcal{L}}{\partial_\mu\phi} \delta\phi\right) - \left( \partial_\mu\pdv{\mathcal{L}}{\partial_\mu\phi} \right)\delta\phi \\
+                      &= \left( \pdv{L}{\phi} - \partial_\mu\pdv{\mathcal{L}}{\partial_\mu\phi} \right)\delta\phi + \partial_\mu\left( \pdv{\mathcal{L}}{\partial_\mu\phi} \delta\phi\right)
+\end{align}
+
+Note that the last term when integrated is actually just a four divergence. This allows us to invoke
+Stoke's theorem over all of space time. Analogously as in the mechanical case where the variation at the
+boundaries was fixed at $(t_1,q_1)$, $(t_2,q_2)$, we impose the condition that the variation of the fields
+reduces to zero at the boundary of space-time, taken to be infinity. Explicitly, $\delta\phi|_{R=\infty}=0$.
+
+\begin{align}
+    \int\mathcal{\delta L} &= \int\left( \pdv{L}{\phi} - \partial_\mu\pdv{\mathcal{L}}{\partial_\mu\phi} \right)\delta\phi\dv{x}^\mu + \int\partial_\mu\left( \pdv{\mathcal{L}}{\partial_\mu\phi} \delta\phi\right)\dd{x}^\mu \\
+    0 &= \int\left( \pdv{L}{\phi} - \partial_\mu\pdv{\mathcal{L}}{\partial_\mu\phi} \right)\delta\phi\dd{x}^\mu + \partial_\mu\left( \pdv{\mathcal{L}}{\partial_\mu\phi} \delta\phi\right)\Bigg|_{R=\infty} \\
+      &= \int\left( \pdv{L}{\phi} - \partial_\mu\pdv{\mathcal{L}}{\partial_\mu\phi} \right)\delta\phi\dd{x}^\mu
+\end{align}
+
+By construction, we vary the fields integrated over all of space-time. Therefore, it is not posisble for
+the integration of all variations across space-time to equal zero. This implies that if this equation is
+to be satisfied, the term in brackets must vanish. This is the \textit{Euler-Lagrange} equation of motion
+for classical fields.
+\begin{equation}
+    \pdv{L}{\phi} - \partial_\mu\pdv{\mathcal{L}}{\partial_\mu\phi} = 0
+\end{equation}
+
+\subsection{Example - Klein-Gordon Equation}
+Lemma
+\begin{align}
+    \pdv{\partial_\delta \phi} \left( \eta^{\mu\nu} \partial_\mu\phi \partial_\nu\phi \right) &= \eta^{\mu\nu}\left\{ \pdv{\partial_\nu\phi}{\partial_\delta\phi}\partial_\mu\phi + \partial_\nu\phi\pdv{\partial_\mu\phi}{\partial_\delta\phi} \right\} \\
+     &= \eta^{\mu\nu}\left\{ \delta^\delta_\nu\partial_\mu\phi + \partial_\nu\phi\delta^\delta_\mu \right\} \\
+     &= \left\{ \eta^{\mu\delta}\partial_\mu\phi + \eta^{\delta\nu}\partial_\nu\phi \right\} \\
+     &= \left\{ \partial^\delta\phi + \partial^\delta\phi \right\}
+\end{align}
+Thus we can again use the space-time derivative with the $\delta$ dummy coordinate
+\begin{align}
+    \partial_\delta\pdv{\partial_\delta \phi} \left( \eta^{\mu\nu} \partial_\mu\phi \partial_\nu\phi \right) &= \partial_\delta\partial^\delta\phi + \partial_\delta\partial^\delta\phi \\
+    &= 2\partial_\delta\partial^\delta\phi
+\end{align}
+In the future it will acceptable to write the following
+\begin{align}
+    \pdv{\partial_\mu\phi\partial^\phi}{\partial_\mu} &= \pdv{\partial_\mu}\left( \partial_\mu\phi \right)^2 \\
+                                                      &= 2\partial_\mu\phi
+\end{align}
+This is potentially sloppy notation but is convenient short hand so it will be used.
+
+\section{Symmetries With Classical Fields}
+
+\section{Electricity and Magnetism}
+
+\section{Particle Physics Kinematics}
+\section{Summary}
+\section{Cheat Sheet}
